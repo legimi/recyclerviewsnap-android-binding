@@ -1,49 +1,51 @@
-# RecyclerViewSnap - Xamarin Android Binding Library
+# RecyclerViewSnap
 
 RecyclerView snapping example with SnapHelper
 
-<img src="https://github.com/rubensousa/RecyclerViewSnap/blob/master/screens/snap_googleplay.gif" width=300></img>   <img src="https://github.com/rubensousa/RecyclerViewSnap/blob/master/screens/snap_final.gif" width=300></img>
+<img src="screens/snap_googleplay.gif" width=300></img>   <img src="screens/snap_final.gif" width=300></img>
 
 ## How to
 
 If you need snapping support to start, top, end or bottom, use GravitySnapHelper.
 
-```
-Install-Package Naxam.RecyclerViewSnap.Droid
+Add this to your build.gradle:
+
+```groovy
+Install-Package Naxam.GravitySnapHelper.Droid -Version 1.3.0
 ```
 
 Otherwise, center snapping is done with LinearSnapHelper (part of the recyclerview-v7 package).
 
 ### Snapping center:
 
-```java
+```C#
 SnapHelper snapHelper = new LinearSnapHelper();
-snapHelper.attachToRecyclerView(recyclerView);
+snapHelper.AttachToRecyclerView(recyclerView);
 ```
 
 ### Snapping start with GravitySnapHelper:
 
-```java
-startRecyclerView.setLayoutManager(new LinearLayoutManager(this,
-                LinearLayoutManager.HORIZONTAL, false));
+```C#
+StartRecyclerView.SetLayoutManager(new LinearLayoutManager(this,
+                LinearLayoutManager.Horizontal, false));
                 
-SnapHelper snapHelperStart = new GravitySnapHelper(Gravity.START);
-snapHelperStart.attachToRecyclerView(startRecyclerView);
+SnapHelper snapHelperStart = new GravitySnapHelper(GravityFlags.Start);
+snapHelperStart.AttachToRecyclerView(startRecyclerView);
 ```
 
 ### Snapping top with GravitySnapHelper:
 
-```java
+```C#
 topRecyclerView.setLayoutManager(new LinearLayoutManager(this));
                 
-SnapHelper snapHelperTop = new GravitySnapHelper(Gravity.TOP);
-snapHelperTop.attachToRecyclerView(topRecyclerView);
+SnapHelper snapHelperTop = new GravitySnapHelper(GravityFlags.Top);
+snapHelperTop.AttachToRecyclerView(topRecyclerView);
 ```
 
-## License from Origin Library
+## License
 
     Copyright 2016 The Android Open Source Project
-    Copyright 2016 Rúben Sousa
+    Copyright 2016 Ruben Sousa
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
