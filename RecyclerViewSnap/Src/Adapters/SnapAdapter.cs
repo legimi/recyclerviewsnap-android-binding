@@ -1,18 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using Android.Support.V7.Widget;
+using AndroidX.RecyclerView.Widget;
 using Com.Github.Rubensousa.Gravitysnaphelper;
 using RecyclerViewSnap.Src.Models;
-using static Android.Support.V7.Widget.RecyclerView;
 
 namespace RecyclerViewSnap.Src.Adapters
 {
@@ -45,7 +37,7 @@ namespace RecyclerViewSnap.Src.Adapters
             get { return mSnaps.Count; }
         }
 
-        public override void OnBindViewHolder(ViewHolder holder, int position)
+        public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
             Snap snap = mSnaps[position];
             ((SnapAdapterViewHolder)holder).snapTextView.Text = (snap.mText);

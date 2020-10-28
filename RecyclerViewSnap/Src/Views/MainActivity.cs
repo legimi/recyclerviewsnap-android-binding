@@ -1,20 +1,18 @@
 ﻿using Android.App;
-using Android.Widget;
 using Android.OS;
-using Android.Support.V7.App;
 using Android.Views;
-using System;
-using Android.Support.V7.Widget;
 using RecyclerViewSnap.Src.Models;
 using System.Collections.Generic;
 using RecyclerViewSnap.Src.Adapters;
 using Android.Content;
+using AndroidX.AppCompat.App;
+using AndroidX.RecyclerView.Widget;
 using RecyclerViewSnap.Src.Views;
 
 namespace RecyclerViewSnap
 {
     [Activity(Label = "RecyclerViewSnap", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/AppTheme.NoActionBar")]
-    public class MainActivity : AppCompatActivity, Android.Support.V7.Widget.Toolbar.IOnMenuItemClickListener
+    public class MainActivity : AppCompatActivity, AndroidX.AppCompat.Widget.Toolbar.IOnMenuItemClickListener
     {
         public string ORIENTATION = "orientation";
 
@@ -28,7 +26,7 @@ namespace RecyclerViewSnap
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
             mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
-            Android.Support.V7.Widget.Toolbar toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+            AndroidX.AppCompat.Widget.Toolbar toolbar = FindViewById<AndroidX.AppCompat.Widget.Toolbar>(Resource.Id.toolbar);
             toolbar.InflateMenu(Resource.Menu.main);
             toolbar.SetOnMenuItemClickListener(this);
             mRecyclerView.SetLayoutManager(new LinearLayoutManager(this));
@@ -107,7 +105,4 @@ namespace RecyclerViewSnap
             return apps;
         }
     }
-
-
 }
-
